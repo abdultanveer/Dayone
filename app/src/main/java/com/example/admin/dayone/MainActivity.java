@@ -4,7 +4,6 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Locale;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
     public static String TAG = MainActivity.class.getSimpleName();

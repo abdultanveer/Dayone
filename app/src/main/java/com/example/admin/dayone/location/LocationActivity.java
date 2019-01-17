@@ -11,8 +11,7 @@ import android.provider.Settings;
 import com.example.admin.dayone.BuildConfig;
 import com.example.admin.dayone.R;
 
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +22,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.Locale;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 /**
  * Location sample.
@@ -138,20 +140,20 @@ public class LocationActivity extends AppCompatActivity {
      */
     private boolean checkPermissions() {
         int permissionState = ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION);
+                Manifest.permission.ACCESS_FINE_LOCATION);
         return permissionState == PackageManager.PERMISSION_GRANTED;
     }
 
     private void startLocationPermissionRequest() {
         ActivityCompat.requestPermissions(LocationActivity.this,
-                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                 REQUEST_PERMISSIONS_REQUEST_CODE);
     }
 
     private void requestPermissions() {
         boolean shouldProvideRationale =
                 ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.ACCESS_COARSE_LOCATION);
+                        Manifest.permission.ACCESS_FINE_LOCATION);
 
         // Provide an additional rationale to the user. This would happen if the user denied the
         // request previously, but didn't check the "Don't ask again" checkbox.
