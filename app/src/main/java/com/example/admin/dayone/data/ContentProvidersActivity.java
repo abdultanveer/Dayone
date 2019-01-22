@@ -1,4 +1,4 @@
-package com.example.admin.dayone;
+package com.example.admin.dayone.data;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
+import com.example.admin.dayone.R;
 
 public class ContentProvidersActivity extends AppCompatActivity {
 

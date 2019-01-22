@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".location.LocationActivity"></activity>
+        <activity android:name=".location.LocationActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -27,12 +27,12 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="maps">
+            android:name=".location.MapsActivity"
+            android:label="maps"></activity>
+        <activity android:name=".data.ContentProvidersActivity">
 
         </activity>
-        <activity android:name=".ContentProvidersActivity">
-
+        <activity android:name=".RoomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
