@@ -17,7 +17,16 @@ public class Word {
 
     public Word(@NonNull String word) {this.mWord = word;}
 
+    /**
+     * this method returns a word -- javadoc
+     * @return word
+     */
     public String getWord(){return this.mWord;}
+
+    /**
+     * this will set a word
+     * @param word
+     */
     public void setWord(String word)
     {
         this.mWord = word;
@@ -26,7 +35,7 @@ public class Word {
 
     @Override
     public String toString() {
-
+        setWord("abdul");
         return mWord;
 
     }

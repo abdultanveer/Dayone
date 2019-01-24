@@ -30,14 +30,14 @@
             android:name=".location.MapsActivity"
             android:label="maps"></activity>
         <activity android:name=".data.ContentProvidersActivity">
-
-        </activity>
-        <activity android:name=".RoomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".RoomActivity">
+
         </activity>
     </application>
 
