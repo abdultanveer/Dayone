@@ -31,7 +31,6 @@ public class ContentProvidersActivity extends AppCompatActivity
         // callbacks -- whom should he report to
         loaderManager.initLoader(IDENTITY_CARD,specialInstructions,this);
 
-
        /* Cursor cursor =
                 getContentResolver().query(uriSms,
                         null,null,null,null);*/
@@ -46,7 +45,8 @@ public class ContentProvidersActivity extends AppCompatActivity
 
 
     @Override
-    public android.content.Loader<Cursor> onCreateLoader(int id, Bundle splInstructions) {
+    public android.content.Loader<Cursor> onCreateLoader(int idCard, Bundle splInstructions) {
+        //switch based on idcard of the loader and give diff warehouses for diff loaders
         //uri = location of the warehouse
         Uri uriSms = Uri.parse("content://sms/inbox");
 
@@ -60,7 +60,7 @@ public class ContentProvidersActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLoaderReset(android.content.Loader<Cursor> loader) {
+    public void onLoaderReset(android.content.Loader<Cursor> loaderOldData) {
 
     }
 }
