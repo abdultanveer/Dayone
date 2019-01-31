@@ -2,9 +2,15 @@ package com.example.admin.dayone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -95,4 +101,29 @@ public class FbLoginActivity extends AppCompatActivity {
     }
 
 
+    public void handleClick(View view) {
+        //step 1
+        Intent bindIntent = new Intent(FbLoginActivity.this,MyBoundService.class);
+        bindService(bindIntent,serviceConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder mBinder) {
+            //step 3
+            MyBoundService.LocalBinder localBinder = (MyBoundService.LocalBinder)mBinder;
+            //here i am not creating an instance of the MyBoundService
+            //MyBoundService mMyBoundService = new MyBoundService();
+            //instead i am getting a running instance of MyBoundService
+            MyBoundService myBoundService = localBinder.getService();
+             int randomNo =   myBoundService.getRandomNo();
+             //step 5
+            Toast.makeText(FbLoginActivity.this, "no"+randomNo, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
 }

@@ -30,10 +30,8 @@
         <activity
             android:name=".location.MapsActivity"
             android:label="maps" />
-        <activity android:name=".data.ContentProvidersActivity">
-
-        </activity>
-        <activity android:name=".RoomActivity"></activity>
+        <activity android:name=".data.ContentProvidersActivity"></activity>
+        <activity android:name=".RoomActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -61,8 +59,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <service
+            android:name=".MyBoundService"
+            android:enabled="true"
+            android:exported="false"></service>
     </application>
 
 </manifest>
