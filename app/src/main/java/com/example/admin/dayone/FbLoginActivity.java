@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.admin.firstday.IAdd;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -102,9 +104,20 @@ public class FbLoginActivity extends AppCompatActivity {
 
 
     public void handleClick(View view) {
-        //step 1
-        Intent bindIntent = new Intent(FbLoginActivity.this,MyBoundService.class);
-        bindService(bindIntent,serviceConnection, Context.BIND_AUTO_CREATE);
+
+        switch (view.getId()) {
+            case R.id.boundServicebutton:
+            //step 1
+            Intent bindIntent = new Intent(FbLoginActivity.this, MyBoundService.class);
+            bindService(bindIntent, serviceConnection, Context.BIND_AUTO_CREATE);
+            break;
+            case R.id.aidlbutton:
+                Intent addIntent = new Intent();
+                addIntent.setClassName("com.example.admin.firstday",
+                        "com.example.admin.firstday.AddService");
+                bindService(addIntent,addServiceConnection,BIND_AUTO_CREATE);
+                break;
+        }
     }
 
     ServiceConnection serviceConnection = new ServiceConnection() {
@@ -126,4 +139,27 @@ public class FbLoginActivity extends AppCompatActivity {
 
         }
     };
+
+    IAdd remoteAddService = null;
+    ServiceConnection addServiceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder addBinder) {
+           remoteAddService = IAdd.Stub.asInterface((IBinder)addBinder);
+            try {
+               int result = remoteAddService.add(15,20);
+                Toast.makeText(FbLoginActivity.this, "result = "+result, Toast.LENGTH_SHORT).show();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
+
+
 }
