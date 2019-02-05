@@ -30,7 +30,7 @@
         <activity
             android:name=".location.MapsActivity"
             android:label="maps" />
-        <activity android:name=".data.ContentProvidersActivity"></activity>
+        <activity android:name=".data.ContentProvidersActivity" />
         <activity android:name=".RoomActivity" />
 
         <meta-data
@@ -54,17 +54,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".FbLoginActivity">
+           </activity>
+
+        <service
+            android:name=".MyBoundService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
-        <service
-            android:name=".MyBoundService"
-            android:enabled="true"
-            android:exported="false"></service>
+        </activity>
     </application>
 
 </manifest>
