@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:id="@+id/fragmentcontainertablets"
+    android:layout_height="match_parent">
+
+
+    <fragment
+        android:id="@+id/fragmentheadlines"
+        android:name="com.example.admin.dayone.fragments.HeadlinesFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <fragment
+        android:id="@+id/fragmentnews"
+        android:name="com.example.admin.dayone.fragments.NewsFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
+</LinearLayout>

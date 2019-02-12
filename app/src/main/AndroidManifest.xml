@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.admin.dayone">
-
     <!-- step 4 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -14,6 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".fragments.FragmentsActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".location.LocationActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -53,8 +60,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".FbLoginActivity">
-           </activity>
+        <activity android:name=".FbLoginActivity"></activity>
 
         <service
             android:name=".MyBoundService"
@@ -62,12 +68,6 @@
             android:exported="false" />
 
         <activity android:name=".LoginActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>
